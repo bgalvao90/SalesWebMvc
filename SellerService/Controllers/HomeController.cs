@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SalesWebMvc.Models.ViewModels;
 
 namespace SellerService.Controllers;
@@ -19,7 +20,6 @@ public class HomeController : Controller
     }
     public IActionResult About()
     {
-        
         ViewData["name"] = "Bruno Galvão";
         ViewData["email"] = "bmgalvao90@gmail.com";
         return View();
