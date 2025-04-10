@@ -16,9 +16,11 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
     ));
 
 // Ensure the correct SellerService class is being referenced
-builder.Services.AddScoped<SalesWebMvc.Services.SellersService>();
-
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellersService>();
+builder.Services.AddScoped<DepartmentService>();
+
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationInsightsTelemetry();
