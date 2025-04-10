@@ -13,13 +13,13 @@ namespace SalesWebMvc.Models
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public double BaseSalary { get; set; }
-        public Departament Departament { get; set; }
+        public Department Departament { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller()
         {
         }
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Departament departament)
+        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department departament)
         {
             Id = id;
             Name = name;
