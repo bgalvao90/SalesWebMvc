@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SalesWebMvc.Data;
+using SalesWebMvc.Services; // Ensure this namespace contains the correct SellerService class
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +15,15 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 41)) // Versão do MySQL
     ));
 
-builder.Services.AddScoped<SeedingService>();
+// Ensure the correct SellerService class is being referenced
+builder.Services.AddScoped<SalesWebMvc.Services.SellersService>();
 
+builder.Services.AddScoped<SeedingService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationInsightsTelemetry();
 
-var app = builder.Build(); 
+var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
