@@ -24,15 +24,15 @@ namespace SalesWebMvc.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     BirthDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     BaseSalary = table.Column<double>(type: "double", nullable: false),
-                    DepartamentId = table.Column<int>(type: "int", nullable: true)
+                    DepartmentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Seller", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Seller_Departament_DepartamentId",
-                        column: x => x.DepartamentId,
-                        principalTable: "Departament",
+                        name: "FK_Seller_Department_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Department",
                         principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -65,9 +65,9 @@ namespace SalesWebMvc.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Seller_DepartamentId",
+                name: "IX_Seller_DepartmentId",
                 table: "Seller",
-                column: "DepartamentId");
+                column: "DepartmentId");
         }
 
         /// <inheritdoc />

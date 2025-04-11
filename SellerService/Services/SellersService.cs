@@ -23,14 +23,14 @@ namespace SalesWebMvc.Services
 
         public void Insert(Sellers obj)
         {
-            obj.Departament = _context.Departament.First();
+            obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
 
         public Sellers FindById(int id)
         {
-            return _context.Seller.Include(obj => obj.Departament).FirstOrDefault(obj => obj.Id == id);
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
         }
 
         public void Remove(int id)

@@ -11,8 +11,8 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    [Migration("20250410023840_DepartamentForeingKey")]
-    partial class DepartamentForeingKey
+    [Migration("20250410023840_DepartmentForeingKey")]
+    partial class DepartmentForeingKey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace SalesWebMvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departament");
+                    b.ToTable("Department");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
@@ -73,7 +73,7 @@ namespace SalesWebMvc.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("DepartamentId")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -84,7 +84,7 @@ namespace SalesWebMvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartamentId");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Seller");
                 });
@@ -100,13 +100,13 @@ namespace SalesWebMvc.Migrations
 
             modelBuilder.Entity("SalesWebMvc.Models.Sellers", b =>
                 {
-                    b.HasOne("SalesWebMvc.Models.Department", "Departament")
+                    b.HasOne("SalesWebMvc.Models.Department", "Department")
                         .WithMany("Sellers")
-                        .HasForeignKey("DepartamentId")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Departament");
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.Department", b =>

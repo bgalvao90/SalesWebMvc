@@ -3,9 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Localization;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services; // Ensure this namespace contains the correct SellerService class
 using System;
+using System.Globalization;
+using System.Collections.Generic;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +37,16 @@ using (var scope = app.Services.CreateScope())
 
     try
     {
+        var enUs = new CultureInfo("en-US");
+        var localizationOptions = new RequestLocalizationOptions
+        {
+            DefaultRequestCulture = new RequestCulture(enUs),
+            SupportedCultures = new List<CultureInfo> { enUs },
+            SupportedUICultures = new List<CultureInfo> { enUs }
+        };
+
+        app.UseRequestLocalization(localizationOptions);
+
         var seedingService = services.GetRequiredService<SeedingService>();
         seedingService.Seed();
     }

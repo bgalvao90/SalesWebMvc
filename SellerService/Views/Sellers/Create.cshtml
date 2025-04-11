@@ -22,15 +22,15 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Sellers.BirthDate" class="control-label"></label>
-				<input asp-for="Sellers.BirthDate" class="form-control" type="date" />
+				<input asp-for="Sellers.BirthDate" class="form-control" />
 			</div>
 			<div class="form-group">
 				<label asp-for="Sellers.BaseSalary" class="control-label"></label>
-				<input asp-for="Sellers.BaseSalary" class="form-control" type="number" step="0.01" min="0" />
+				<input asp-for="Sellers.BaseSalary" class="form-control" />
 			</div>
 			<div class="form-group">
-				<label asp-for="Sellers.DepartamentId" class="control-label"></label>
-				<select asp-for="Sellers.DepartamentId" asp-items="@(new SelectList(Model.Departaments, "Id", "Name"))"
+				<label asp-for="Sellers.DepartmentId" class="control-label"></label>
+				<select asp-for="Sellers.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))"
 						class="form-control"></select>
 			</div>
 			<div class="form-group">

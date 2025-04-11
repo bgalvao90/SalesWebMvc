@@ -30,10 +30,10 @@ namespace SalesWebMvc.Controllers
         }
         public IActionResult Create()
         {
-            var departaments = _departmentService.FindAll();
+            var departments = _departmentService.FindAll();
             var viewModel = new SellerFormViewModel
             {
-                Departaments = departaments
+                Departments = departments
             };
             return View(viewModel);
         }
@@ -96,7 +96,7 @@ namespace SalesWebMvc.Controllers
             List<Department> departments = _departmentService.FindAll();
             SellerFormViewModel viewModel = new SellerFormViewModel
             {
-                Departaments = departments,
+                Departments = departments,
                 Sellers = obj
             };
             return View(viewModel);

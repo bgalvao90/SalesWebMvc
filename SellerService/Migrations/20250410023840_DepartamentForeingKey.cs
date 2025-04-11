@@ -5,17 +5,17 @@
 namespace SalesWebMvc.Migrations
 {
     /// <inheritdoc />
-    public partial class DepartamentForeingKey : Migration
+    public partial class DepartmentForeingKey : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Seller_Departament_DepartamentId",
+                name: "FK_Seller_Department_DepartmentId",
                 table: "Seller");
 
             migrationBuilder.AlterColumn<int>(
-                name: "DepartamentId",
+                name: "DepartmentId",
                 table: "Seller",
                 type: "int",
                 nullable: false,
@@ -25,10 +25,10 @@ namespace SalesWebMvc.Migrations
                 oldNullable: true);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Seller_Departament_DepartamentId",
+                name: "FK_Seller_Department_DepartmentId",
                 table: "Seller",
-                column: "DepartamentId",
-                principalTable: "Departament",
+                column: "DepartmentId",
+                principalTable: "Department",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -37,11 +37,11 @@ namespace SalesWebMvc.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Seller_Departament_DepartamentId",
+                name: "FK_Seller_Department_DepartmentId",
                 table: "Seller");
 
             migrationBuilder.AlterColumn<int>(
-                name: "DepartamentId",
+                name: "DepartmentId",
                 table: "Seller",
                 type: "int",
                 nullable: true,
@@ -49,10 +49,10 @@ namespace SalesWebMvc.Migrations
                 oldType: "int");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Seller_Departament_DepartamentId",
+                name: "FK_Seller_Department_DepartmentId",
                 table: "Seller",
-                column: "DepartamentId",
-                principalTable: "Departament",
+                column: "DepartmentId",
+                principalTable: "Department",
                 principalColumn: "Id");
         }
     }
